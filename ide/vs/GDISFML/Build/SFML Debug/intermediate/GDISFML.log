@@ -1,78 +1,10 @@
-﻿  App.cpp
-D:\TRAVAUX PROGRAMMATION\Groups\Projet 2\GDISFML\src\GDISFML\App.cpp(154,19): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
-  (compiler le fichier source '/src/GDISFML/App.cpp')
-  
-D:\TRAVAUX PROGRAMMATION\Groups\Projet 2\GDISFML\src\GDISFML\App.cpp(159,31): warning C4244: '=' : conversion de 'unsigned long' en 'float', perte possible de données
-  (compiler le fichier source '/src/GDISFML/App.cpp')
-  
-D:\TRAVAUX PROGRAMMATION\Groups\Projet 2\GDISFML\src\GDISFML\App.cpp(175,32): warning C4244: '=' : conversion de 'const _Ty' en 'float', perte possible de données
-D:\TRAVAUX PROGRAMMATION\Groups\Projet 2\GDISFML\src\GDISFML\App.cpp(175,32): warning C4244:         with
-D:\TRAVAUX PROGRAMMATION\Groups\Projet 2\GDISFML\src\GDISFML\App.cpp(175,32): warning C4244:         [
-D:\TRAVAUX PROGRAMMATION\Groups\Projet 2\GDISFML\src\GDISFML\App.cpp(175,32): warning C4244:             _Ty=int
-D:\TRAVAUX PROGRAMMATION\Groups\Projet 2\GDISFML\src\GDISFML\App.cpp(175,32): warning C4244:         ]
-  (compiler le fichier source '/src/GDISFML/App.cpp')
-  
-  main.cpp
-D:\TRAVAUX PROGRAMMATION\Groups\Projet 2\GDISFML\src\GDISFML\main.cpp(11,9): warning C4005: 'DEBUG_NEW' : redéfinition de macro
-  (compiler le fichier source '/src/GDISFML/main.cpp')
-      D:\TRAVAUX PROGRAMMATION\Groups\Projet 2\GDISFML\src\GDISFML\pch.h(5,9):
-      voir la définition précédente de « DEBUG_NEW »
-  
-  Génération de code en cours...
-sfml-system-s-d.lib(String.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(String.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(Window.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(Window.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(GlResource.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(GlResource.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(VideoMode.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(VideoMode.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(WindowBase.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(WindowBase.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
+﻿  main.cpp
+C:\Users\wchapron\Documents\EncapsulationGDI-SFML\src\GDISFML\main.cpp(11,1): warning C4005: 'DEBUG_NEW' : redéfinition de macro
+C:\Users\wchapron\Documents\EncapsulationGDI-SFML\src\GDISFML\pch.h(5,1): message : voir la définition précédente de 'DEBUG_NEW'
 sfml-window-s-d.lib(GlContext.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(GlContext.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(WindowImpl.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(WindowImpl.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(VideoModeImpl.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(VideoModeImpl.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(Cursor.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(Cursor.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(Context.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(Context.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(WglContext.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(WglContext.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(JoystickManager.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(JoystickManager.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(SensorManager.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(SensorManager.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(WindowImplWin32.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(WindowImplWin32.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(VulkanImplWin32.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(VulkanImplWin32.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(CursorImpl.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(CursorImpl.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(Joystick.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(Joystick.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(JoystickImpl.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(JoystickImpl.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-window-s-d.lib(SensorImpl.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(SensorImpl.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(Transformable.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(Transformable.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(Text.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(Text.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
+sfml-window-s-d.lib(VideoMode.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-window-s-d.lib(VideoMode.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
 sfml-graphics-s-d.lib(Font.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(Font.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(Color.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(Color.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(Shape.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(Shape.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(CircleShape.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(CircleShape.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(RectangleShape.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(RectangleShape.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
 sfml-graphics-s-d.lib(RenderTarget.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(RenderTarget.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(RenderStates.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(RenderStates.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(Texture.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(Texture.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(RenderWindow.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(RenderWindow.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(Transform.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(Transform.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(Vertex.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(Vertex.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(VertexArray.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(VertexArray.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(Image.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(Image.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(View.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(View.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(BlendMode.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(BlendMode.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
 sfml-graphics-s-d.lib(Shader.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(Shader.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(VertexBuffer.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(VertexBuffer.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(GLExtensions.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(GLExtensions.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(GLCheck.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(GLCheck.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(TextureSaver.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(TextureSaver.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
 sfml-graphics-s-d.lib(RenderTextureImplFBO.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(RenderTextureImplFBO.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(ImageLoader.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(ImageLoader.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(Glsl.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(Glsl.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-graphics-s-d.lib(RenderTextureImpl.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-graphics-s-d.lib(RenderTextureImpl.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-system-s-d.lib(Time.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(Time.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-system-s-d.lib(Clock.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(Clock.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-system-s-d.lib(Sleep.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(Sleep.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-system-s-d.lib(Err.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(Err.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-system-s-d.lib(ThreadLocal.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(ThreadLocal.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-system-s-d.lib(Mutex.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(Mutex.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-system-s-d.lib(Lock.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(Lock.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-system-s-d.lib(ClockImpl.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(ClockImpl.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-system-s-d.lib(SleepImpl.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(SleepImpl.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-system-s-d.lib(ThreadLocalImpl.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(ThreadLocalImpl.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-sfml-system-s-d.lib(MutexImpl.obj) : warning LNK4099: PDB '' n'a pu être trouvé avec 'sfml-system-s-d.lib(MutexImpl.obj)' ou sur '' ; l'objet sera lié sans informations de débogage
-  GDISFML.vcxproj -> D:\TRAVAUX PROGRAMMATION\Groups\Projet 2\GDISFML\ide\vs\GDISFML\Build\SFML Debug\GDISFML.exe
+  GDISFML.vcxproj -> C:\Users\wchapron\Documents\EncapsulationGDI-SFML\ide\vs\GDISFML\Build\SFML Debug\GDISFML.exe

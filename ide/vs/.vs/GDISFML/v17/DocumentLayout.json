@@ -1,24 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\wchapron\\Documents\\GDISFML\\ide\\vs\\",
+  "WorkspaceRootPath": "C:\\Users\\wchapron\\Documents\\EncapsulationGDI-SFML\\ide\\vs\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\App.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\BitmapTexture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\App.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{317F98A3-7B26-4892-8783-C9751334CDD4}|GDISFML\\GDISFML.vcxproj|C:\\Users\\wchapron\\Documents\\EncapsulationGDI-SFML\\src\\GDISFML\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,66 +13,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "pch.h",
-              "DocumentMoniker": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\pch.h",
-              "ToolTip": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\pch.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-18T02:13:02.189Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Texture.cpp",
-              "DocumentMoniker": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\Texture.cpp",
-              "ToolTip": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\Texture.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T01:45:45.758Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "main.cpp",
-              "DocumentMoniker": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\main.cpp",
-              "ToolTip": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\main.cpp",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T01:33:04.765Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BitmapTexture.h",
-              "DocumentMoniker": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\BitmapTexture.h",
-              "ToolTip": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\BitmapTexture.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-18T01:32:45.23Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "App.h",
-              "DocumentMoniker": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\App.h",
-              "ToolTip": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\App.h",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-18T01:32:44.133Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "App.cpp",
-              "DocumentMoniker": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\App.cpp",
-              "ToolTip": "D:\\TRAVAUX PROGRAMMATION\\Groups\\Projet 2\\GDISFML\\src\\GDISFML\\App.cpp",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAUwGwAAAAfAAAAAAAAAA==",
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\wchapron\\Documents\\EncapsulationGDI-SFML\\src\\GDISFML\\main.cpp",
+              "RelativeDocumentMoniker": "..\\..\\src\\GDISFML\\main.cpp",
+              "ToolTip": "C:\\Users\\wchapron\\Documents\\EncapsulationGDI-SFML\\src\\GDISFML\\main.cpp",
+              "RelativeToolTip": "..\\..\\src\\GDISFML\\main.cpp",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABwAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T01:31:49.944Z"
+              "WhenOpened": "2024-10-21T15:36:09.833Z",
+              "EditorCaption": ""
             }
           ]
         }
