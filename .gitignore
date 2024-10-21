@@ -1,0 +1,8 @@
+
+*.vsidx
+GDISFML/ide/vs/GDISFML/Build/Debug/intermediate/GDISFML.pch
+GDISFML/ide/vs/.vs/GDISFML/v17/ipch/21f67ec307f141a2.ipch
+GDISFML/ide/vs/.vs/GDISFML/v17/ipch/7af1f9d07c8792b6.ipch
+GDISFML/ide/vs/.vs/GDISFML/v17/Browse.VC.opendb
+*.ipch
+*.pch

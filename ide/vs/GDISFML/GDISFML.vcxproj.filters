@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+    <ItemGroup>
+        <Filter Include="Header Files">
+            <UniqueIdentifier>{03353D2C-99E4-4F32-BFD0-A7FF502DE278}</UniqueIdentifier>
+            <Extensions>h;hpp</Extensions>
+        </Filter>
+        <Filter Include="Source Files">
+            <UniqueIdentifier>{37EA94C6-99AE-4134-94A7-2DE88BC84A9B}</UniqueIdentifier>
+            <Extensions>cpp;c</Extensions>
+        </Filter>
+        <Filter Include="Resource Files">
+            <UniqueIdentifier>{4A0651E2-4908-4391-82A3-DB678819C677}</UniqueIdentifier>
+            <Extensions>hlsl;jpg;jpeg;png;wav;mp3;ico;dds;rc;obj</Extensions>
+        </Filter>
+    </ItemGroup>
+    <ItemGroup>
+        <ClCompile Include="..\..\..\src\GDISFML\App.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\BitmapTexture.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\BouncingBall.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\Font.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\GDIFont.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\GDIRenderer.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\GDISurface.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\GDITexture.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\GDIWindow.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\main.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\pch.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\RenderInterface.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\SFMLFont.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\SFMLRenderer.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\SFMLSurface.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\SFMLTexture.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\SFMLWindow.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\Surface.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\Text.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\Texture.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClCompile Include="..\..\..\src\GDISFML\Window.cpp">
+            <Filter>Source Files</Filter>
+        </ClCompile>
+        <ClInclude Include="..\..\..\src\GDISFML\App.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\BitmapTexture.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\BouncingBall.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\CommonStructures.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\Font.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\GDIFont.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\GDIRenderer.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\GDISurface.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\GDITexture.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\GDIWindow.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\main.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\pch.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\RenderInterface.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\SFMLFont.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\SFMLRenderer.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\SFMLSurface.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\SFMLTexture.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\SFMLWindow.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\Surface.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\Text.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\Texture.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <ClInclude Include="..\..\..\src\GDISFML\Window.h">
+            <Filter>Header Files</Filter>
+        </ClInclude>
+        <None Include="..\..\..\src\GDISFML\app.ico">
+            <Filter>Resource Files</Filter>
+        </None>
+        <None Include="..\..\..\src\GDISFML\app.rc">
+            <Filter>Resource Files</Filter>
+        </None>
+        <None Include="..\..\..\src\GDISFML\small.ico">
+            <Filter>Resource Files</Filter>
+        </None>
+    </ItemGroup>
+</Project>

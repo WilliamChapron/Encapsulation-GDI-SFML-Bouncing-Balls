@@ -1,0 +1,46 @@
+﻿  pch.cpp
+  App.cpp
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\App.cpp(154,19): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\App.cpp(158,23): warning C4244: 'initialisation' : conversion de 'ULONGLONG' en 'DWORD', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\App.cpp(159,31): warning C4244: '=' : conversion de 'unsigned long' en 'float', perte possible de données
+  BitmapTexture.cpp
+  BouncingBall.cpp
+  Font.cpp
+  GDIFont.cpp
+  GDIRenderer.cpp
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(49,32): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(48,32): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(64,120): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(64,99): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(64,81): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(64,66): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(75,43): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(75,30): warning C4244: 'initialisation' : conversion de 'float' en 'const int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(82,31): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(81,31): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(80,31): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(79,31): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(99,35): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(98,35): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(113,139): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(113,115): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(113,91): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\GDIRenderer.cpp(113,67): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  GDISurface.cpp
+  GDITexture.cpp
+  GDIWindow.cpp
+  main.cpp
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\main.cpp(11,1): warning C4005: 'DEBUG_NEW' : redéfinition de macro
+C:\Users\wchapron\Documents\GDISFML\src\GDISFML\pch.h(5,1): message : voir la définition précédente de 'DEBUG_NEW'
+  RenderInterface.cpp
+  SFMLFont.cpp
+  SFMLRenderer.cpp
+  SFMLSurface.cpp
+  SFMLTexture.cpp
+  SFMLWindow.cpp
+  Surface.cpp
+  Text.cpp
+  Texture.cpp
+  Window.cpp
+  Génération de code en cours...
+  GDISFML.vcxproj -> C:\Users\wchapron\Documents\GDISFML\ide\vs\GDISFML\Build\GDI Debug\GDISFML.exe
