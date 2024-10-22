@@ -19,239 +19,477 @@
 #include <filesystem>
 #include <functional> 
 
+#include <SFML/Graphics.hpp>
+#include <map>
+#include <functional>
+#include <iostream>
+#include <chrono>
+#include <thread>
+#include <filesystem>
+
 using std::string;
 
-#define COOLPURPLE \
-    CLITERAL(Color) { 153, 0, 0, 255 }  // cool Purple
+class Enemy;
+
+std::vector<Enemy> enemyObjects;
+sf::RenderWindow* window = nullptr;
 
 constexpr int G_RELOAD_TIME = 3;
 
-//enum class SuperShotgunState
-//{
-//    BarrelFull,
-//    BarrelEmpty,
-//    Reloading,
-//    Escape,
-//    Close,
-//};
-//
-//typedef struct DoubleBarrel
-//{
-//    SuperShotgunState state;
-//
-//    std::map<SuperShotgunState, std::function<void(sf::Event&)>> m_actions;
-//
-//    void SetActions(std::map<SuperShotgunState, std::function<void(sf::Event&)>>& actionsData) {
-//        m_actions = actionsData;
-//    }
-//
-//    void ReadCommand(sf::Event& input) {
-//        std::cout << (int)state;
-//        if (m_actions.find(state) != m_actions.end()) {
-//            m_actions[state](input); 
-//        }
-//        //std::cout << (int)state;
-//    }
-//
-//
-//
-//    void click()
-//    {
-//        this->state = SuperShotgunState::BarrelEmpty;
-//    }
-//
-//    void reload()
-//    {
-//        this->state = SuperShotgunState::Reloading;
-//        std::thread start_thread(&DoubleBarrel::_reloadCounter, this);
-//        start_thread.detach();
-//    }
-//
-//    SuperShotgunState getState()
-//    {
-//        return this->state;
-//    }
-//
-//    string getStateStr()
-//    {
-//        switch (this->state)
-//        {
-//        case SuperShotgunState::BarrelFull:
-//            return "BarrelFull";
-//        case SuperShotgunState::BarrelEmpty:
-//            return "BarrelEmpty";
-//        case SuperShotgunState::Reloading:
-//            return "Reloading";
-//        default:
-//            return "something went horribly wrong";
-//        }
-//    }
-//
-//private:
-//
-//    void _reloadCounter()
-//    {
-//        std::this_thread::sleep_for(std::chrono::seconds(G_RELOAD_TIME));
-//        this->state = SuperShotgunState::BarrelFull;
-//    }
-//
-//} DoubleBarrel;
-//
-//
-//
-//int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
-//
-//    // Récupérer le chemin courant
-//    std::filesystem::path currentPath = std::filesystem::current_path();
-//
-//    // Allouer une nouvelle console
-//    AllocConsole();
-//
-//    // Rediriger stdout et stderr vers la console
-//    FILE* pFile;
-//    freopen_s(&pFile, "CONOUT$", "w", stdout);
-//    freopen_s(&pFile, "CONOUT$", "w", stderr);
-//
-//    // Afficher le chemin courant
-//    std::cout << "Current Directory: " << currentPath << std::endl;
-//
-//    // Libérer les ressources et fermer la console
-//
-//    DoubleBarrel double_barrel{ .state = SuperShotgunState::BarrelFull };
-//
-//    sf::RenderWindow window(sf::VideoMode(650, 400), "GamingCampus - SuperShotgunVisualizer");
-//
-//    string barrel_empty_path = "C:\\Users\\wchapron\\source\\BarrelEmpty.png";
-//    string barrel_full_path = "C:\\Users\\wchapron\\source\\BarrelFull.png";
-//    string clicking_path = "C:\\Users\\wchapron\\source\\Clicking.png";
-//    string reloading_path = "C:\\Users\\wchapron\\source\\Reloading.png";
-//    sf::Texture barrel_empty_texture;
-//    sf::Texture barrel_full_texture;
-//    sf::Texture clicking_texture;
-//    sf::Texture reloading_texture;
-//
-//    if (!barrel_empty_texture.loadFromFile(barrel_empty_path))
-//    {
-//        std::cerr << "Failed to load barrel_empty_texture" << std::endl;
-//    }
-//    if (!barrel_full_texture.loadFromFile(barrel_full_path))
-//    {
-//        std::cerr << "Failed to load barrel_full_texture" << std::endl;
-//    }
-//    if (!clicking_texture.loadFromFile(clicking_path))
-//    {
-//        std::cerr << "Failed to load clicking_texture" << std::endl;
-//    }
-//    if (!reloading_texture.loadFromFile(reloading_path))
-//    {
-//        std::cerr << "Failed to load reloading_texture" << std::endl;
-//    }
-//
-//    sf::Sprite barrel_empty_sprite(barrel_empty_texture);
-//    sf::Sprite barrel_full_sprite(barrel_full_texture);
-//    sf::Sprite clicking_sprite(clicking_texture);
-//    sf::Sprite reloading_sprite(reloading_texture);
-//
-//    barrel_empty_sprite.setScale(0.52f, 0.56f);
-//    barrel_full_sprite.setScale(0.52f, 0.56f);
-//    clicking_sprite.setScale(0.52f, 0.56f);
-//    reloading_sprite.setScale(0.52f, 0.56f);
-//
-//    barrel_empty_sprite.setPosition(0, 0);
-//    barrel_full_sprite.setPosition(0, 0);
-//    clicking_sprite.setPosition(0, 0);
-//    reloading_sprite.setPosition(0, 0);
-//
-//    sf::Font font;
-//    if (!font.loadFromFile("C:\\Users\\wchapron\\source\\Hack-Regular.ttf")) 
-//    {
-//        std::cerr << "Failed to load font" << std::endl;
-//    }
-//
-//    sf::Text stateText;
-//    stateText.setFont(font);
-//    stateText.setCharacterSize(36);
-//    stateText.setFillColor(sf::Color::White);
-//    stateText.setPosition(10, 10);
-//
-//    // Link actions to event 
-//
-//    std::map<SuperShotgunState, std::function<void(sf::Event&)>> actions;
-//
-//    actions[SuperShotgunState::BarrelFull] = { [&double_barrel](sf::Event& event) {
-//        if (event.mouseButton.button == sf::Mouse::Left) {
-//            double_barrel.click(); 
-//        }
-//    } };
-//
-//    actions[SuperShotgunState::BarrelEmpty] = { [&double_barrel](sf::Event& event) {
-//        if (event.key.code == sf::Keyboard::R) {
-//            double_barrel.reload(); 
-//        }
-//    } };
-//
-//    actions[SuperShotgunState::Close] = { [&double_barrel, &window](sf::Event& event) {
-//        window.close();
-//    } };
-//
-//    actions[SuperShotgunState::Escape] = { [&double_barrel, &window](sf::Event& event) {
-//        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-//            window.close();
-//        }
-//    } };
-//
-//    double_barrel.SetActions(actions);
-//
-//    // loop :
-//    // - print state each second.
-//    // - get user input: Click/Reload/Quit
-//    while (window.isOpen())
-//    {
-//        sf::Event event;
-//        while (window.pollEvent(event))
-//        {
-//            if (event.type == sf::Event::Closed)
-//            {
-//                double_barrel.state = SuperShotgunState::Close;
-//                double_barrel.ReadCommand(event);
-//            }
-//            if (event.type == sf::Event::MouseButtonPressed &&
-//                event.mouseButton.button == sf::Mouse::Left)
-//            {
-//                double_barrel.ReadCommand(event);
-//            }
-//            if (event.type == sf::Event::KeyPressed &&
-//                event.key.code == sf::Keyboard::R)
-//            {
-//                double_barrel.ReadCommand(event);
-//            }
-//            if (event.type == sf::Event::KeyPressed &&
-//                event.key.code == sf::Keyboard::Escape)
-//            {
-//                double_barrel.state = SuperShotgunState::Escape;
-//                double_barrel.ReadCommand(event);
-//            }
-//        }
-//
-//        stateText.setString(double_barrel.getStateStr());
-//
-//        switch (double_barrel.getState())
-//        {
-//        case SuperShotgunState::BarrelFull:
-//            window.draw(barrel_full_sprite);
-//            break;
-//        case SuperShotgunState::BarrelEmpty:
-//            window.draw(barrel_empty_sprite);
-//            break;
-//        case SuperShotgunState::Reloading:
-//            window.draw(reloading_sprite);
-//            break;
-//        }
-//
-//        window.draw(stateText);
-//        window.display();
-//    }
-//}
+class CustomCursor {
+public:
+    CustomCursor() {
+        cursorShape.setRadius(30);
+        cursorShape.setFillColor(sf::Color::Cyan); 
+    }
+
+    void Update(const sf::Vector2i& mousePosition) {
+        cursorShape.setPosition(static_cast<float>(mousePosition.x) - 30, static_cast<float>(mousePosition.y) - 30);
+    }
+
+    void Draw(sf::RenderWindow& window) {
+        window.draw(cursorShape); 
+    }
+
+private:
+    sf::CircleShape cursorShape; 
+};
+
+
+enum class SuperShotgunState {
+    BarrelFull,
+    BarrelEmpty,
+    Reloading,
+    //Escape,
+    //Close
+};
+
+class SuperShotgun;
+
+class Timer {
+public:
+    void Start() {
+        startTime = std::chrono::steady_clock::now();
+    }
+
+    bool CheckEndTimer(double seconds) {
+        currentTime = std::chrono::steady_clock::now();
+        std::chrono::duration<double> elapsed = currentTime - startTime;
+        return elapsed.count() >= seconds;
+    }
+
+private:
+    std::chrono::steady_clock::time_point startTime;
+    std::chrono::steady_clock::time_point currentTime;
+};
+
+class Enemy {
+public:
+    Enemy(float x, float y) {
+        enemyShape.setPosition(x, y);
+        enemyShape.setRadius(20.0f); 
+        enemyShape.setFillColor(sf::Color::Green); 
+        direction = sf::Vector2f(1.0f, 1.0f); 
+        speed = 100.0f; 
+        timer.Start();
+    }
+
+    bool IsHit(const sf::Vector2i& mousePosition) {
+        float enemyX = enemyShape.getPosition().x + enemyShape.getRadius();
+        float enemyY = enemyShape.getPosition().y + enemyShape.getRadius();
+
+        float distanceX = abs(mousePosition.x - enemyShape.getPosition().x);
+        float distanceY = abs(mousePosition.x - enemyShape.getPosition().x);
+
+        if (distanceX <= enemyShape.getRadius() && distanceY <= enemyShape.getRadius()) {
+            return true;
+        }
+        return false;
+    }
+
+    void Update(float deltaTime) {
+        enemyShape.move(direction * speed * deltaTime);
+
+
+        if (enemyShape.getPosition().x <= 0 || enemyShape.getPosition().x >= 650 - enemyShape.getRadius() * 2) {
+            direction.x = -direction.x; 
+        }
+        if (enemyShape.getPosition().y <= 0 || enemyShape.getPosition().y >= 400 - enemyShape.getRadius() * 2) {
+            direction.y = -direction.y; 
+        }
+
+        int random_value = std::rand() % 360;
+        //std::cout << "Random value on [0, " << RAND_MAX << "]: " << random_value << '\n';
+
+        if (timer.CheckEndTimer(0.5)) {
+            //std::cout << "Change dir";
+
+            float angle = static_cast<float>(random_value);
+            direction.x = std::cos(angle * 3.14159f / 180.0f);
+            direction.y = std::sin(angle * 3.14159f / 180.0f);
+
+            timer.Start();
+        }
+
+
+    }
+
+    void Draw(sf::RenderWindow& window) {
+        window.draw(enemyShape); 
+    }
+
+private:
+    sf::CircleShape enemyShape; 
+    sf::Vector2f direction;     
+    float speed;      
+
+    Timer timer;
+};
+
+
+class Action {
+public:
+    Action(SuperShotgun* super_shotgun) : mSuperShotgun(super_shotgun) {}
+
+    virtual void Start(sf::Event& input) = 0;
+    virtual void Update(sf::Event& input) = 0;
+
+protected:
+    SuperShotgun* mSuperShotgun;
+    Timer timer;
+};
+
+
+
+
+class SuperShotgun {
+public:
+    //
+    int m_ammoCount = 2;
+
+    int rpm = 120;
+
+    //
+    SuperShotgunState state;
+    std::map<SuperShotgunState, Action*> actionMap;
+    Action* currentAction = nullptr; 
+
+    void SetActionMap(std::map<SuperShotgunState, Action*>& action) {
+        this->actionMap = action;
+    }
+
+    void SetState(SuperShotgunState new_state) {
+        state = new_state;
+        currentAction = actionMap[state];  
+        if (currentAction) {
+            currentAction->Start(inputEvent);  
+        }
+    }
+
+    void Update(sf::Event& input) {
+        inputEvent = input;
+        if (currentAction) {
+            currentAction->Update(input);
+        }
+    }
+
+    std::string GetSuperShotgunStateString(SuperShotgunState state) {
+        switch (state) {
+        case SuperShotgunState::BarrelFull:
+            return "Barrel Full";
+        case SuperShotgunState::BarrelEmpty:
+            return "Barrel Empty";
+        case SuperShotgunState::Reloading:
+            return "Reloading";
+        default:
+            return "Unknown State";
+        }
+    }
+
+private:
+    sf::Event inputEvent;
+};
+
+
+class BarrelEmpty_Action : public Action {
+public:
+    BarrelEmpty_Action(SuperShotgun* super_shotgun) : Action(super_shotgun) {}
+
+    void Start(sf::Event& input) override {
+        std::cout << "SuperShotgun is empty.\n";
+    }
+
+    void Update(sf::Event& input) override {
+        if (input.key.code == sf::Keyboard::R) {
+            mSuperShotgun->SetState(SuperShotgunState::Reloading);
+        }
+    }
+};
+
+
+class Shoot_Action : public Action {
+public:
+    Shoot_Action(SuperShotgun* super_shotgun) : Action(super_shotgun) {}
+
+    void Start(sf::Event& input) override {
+        std::cout << "SuperShotgun fired.\n";
+    }
+
+    void Update(sf::Event& input) override {
+        if (input.mouseButton.button == sf::Mouse::Left) {
+            if (timer.CheckEndTimer(60.0f / mSuperShotgun->rpm) && mSuperShotgun->m_ammoCount > 0) {
+                mSuperShotgun->m_ammoCount -= 1;
+                timer.Start(); 
+
+                for (Enemy& enemy : enemyObjects) {
+                    sf::Vector2i pos = sf::Mouse::getPosition(*window);
+                    if (enemy.IsHit(pos)) {
+                        std::cout << "Enemy hit!\n";
+                        // #TODO delete enemy 
+                        break; 
+                    }
+                }
+
+                if (mSuperShotgun->m_ammoCount == 0) {
+                    mSuperShotgun->SetState(SuperShotgunState::BarrelEmpty);
+                }
+            }
+        }
+    }
+};
+
+
+class Reload_Action : public Action {
+public:
+    Reload_Action(SuperShotgun* super_shotgun) : Action(super_shotgun) {}
+
+    int m_reloadTime = 3;
+
+    void Start(sf::Event& input) override {
+        timer.Start();
+        std::cout << "Reloading...\n";
+    }
+
+    void Update(sf::Event& input) override {
+        if (timer.CheckEndTimer(m_reloadTime)) {
+
+            // #TODO allow reloading in BARREL FULL STATE IF ammo count est inferieur a Max ammo 
+            mSuperShotgun->SetState(SuperShotgunState::BarrelFull);
+            mSuperShotgun->m_ammoCount = 2;
+        }
+    }
+
+};
+
+class Character {
+public:
+    SuperShotgun* m_superShotgun = nullptr;
+    int m_maxHealth = 100;
+    float m_currentHealth;
+
+    Character() {
+        m_currentHealth = 100;
+        m_superShotgun = new SuperShotgun();
+    }
+
+
+
+
+};
+
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
+
+    window = new sf::RenderWindow(sf::VideoMode(650, 400), "SuperShotgun Visualizer");
+
+    AllocConsole();
+    FILE* pFile;
+    freopen_s(&pFile, "CONOUT$", "w", stdout);
+    freopen_s(&pFile, "CONOUT$", "w", stderr);
+
+    string barrel_empty_path = "C:\\Users\\wchapron\\source\\BarrelEmpty.png";
+    string barrel_full_path = "C:\\Users\\wchapron\\source\\BarrelFull.png";
+    string clicking_path = "C:\\Users\\wchapron\\source\\Clicking.png";
+    string reloading_path = "C:\\Users\\wchapron\\source\\Reloading.png";
+    sf::Texture barrel_empty_texture;
+    sf::Texture barrel_full_texture;
+    sf::Texture clicking_texture;
+    sf::Texture reloading_texture;
+
+    if (!barrel_empty_texture.loadFromFile(barrel_empty_path))
+    {
+        std::cerr << "Failed to load barrel_empty_texture" << std::endl;
+    }
+    if (!barrel_full_texture.loadFromFile(barrel_full_path))
+    {
+        std::cerr << "Failed to load barrel_full_texture" << std::endl;
+    }
+    if (!clicking_texture.loadFromFile(clicking_path))
+    {
+        std::cerr << "Failed to load clicking_texture" << std::endl;
+    }
+    if (!reloading_texture.loadFromFile(reloading_path))
+    {
+        std::cerr << "Failed to load reloading_texture" << std::endl;
+    }
+
+    sf::Sprite barrel_empty_sprite(barrel_empty_texture);
+    sf::Sprite barrel_full_sprite(barrel_full_texture);
+    sf::Sprite clicking_sprite(clicking_texture);
+    sf::Sprite reloading_sprite(reloading_texture);
+
+    barrel_empty_sprite.setScale(0.52f, 0.56f);
+    barrel_full_sprite.setScale(0.52f, 0.56f);
+    clicking_sprite.setScale(0.52f, 0.56f);
+    reloading_sprite.setScale(0.52f, 0.56f);
+
+    barrel_empty_sprite.setPosition(0, 0);
+    barrel_full_sprite.setPosition(0, 0);
+    clicking_sprite.setPosition(0, 0);
+    reloading_sprite.setPosition(0, 0);
+
+    sf::Font font;
+    if (!font.loadFromFile("C:\\Users\\wchapron\\source\\Hack-Regular.ttf"))
+    {
+        std::cerr << "Failed to load font" << std::endl;
+    }
+
+
+    // State text
+    sf::Text stateText;
+    stateText.setFont(font);
+    stateText.setCharacterSize(36);
+    stateText.setFillColor(sf::Color::White);
+    stateText.setPosition(10, 10);
+
+    Character* character = new Character();
+
+    SuperShotgun* superShotgun = character->m_superShotgun;
+
+    BarrelEmpty_Action* barrelEmptyAction = new BarrelEmpty_Action(superShotgun);
+    Shoot_Action* shootAction = new Shoot_Action(superShotgun);
+    Reload_Action* reloadAction = new Reload_Action(superShotgun);
+
+    std::map<SuperShotgunState, Action*> actionMap = {
+        { SuperShotgunState::BarrelEmpty, barrelEmptyAction },
+        { SuperShotgunState::BarrelFull, shootAction },
+        { SuperShotgunState::Reloading, reloadAction }
+    };
+
+    superShotgun->SetActionMap(actionMap);
+    superShotgun->SetState(SuperShotgunState::BarrelFull);
+
+    //
+    sf::RectangleShape healthBar;
+    sf::RectangleShape border;
+
+    healthBar.setSize(sf::Vector2f(202, 22));
+    healthBar.setPosition(300, 10);
+    healthBar.setFillColor(sf::Color::Red);
+
+
+    border.setSize(sf::Vector2f(202, 22)); 
+    border.setPosition(300, 10);
+    border.setFillColor(sf::Color::Transparent); 
+    border.setOutlineThickness(2); 
+    border.setOutlineColor(sf::Color::White); 
+
+    // Ammo
+    sf::Text ammoText;
+    ammoText.setFont(font);
+    ammoText.setCharacterSize(24);
+    ammoText.setFillColor(sf::Color::White);
+    ammoText.setPosition(400, 40); 
+
+    ammoText.setString("Munitions: " + std::to_string(2));
+
+
+    // Enemy
+
+    std::srand(static_cast<unsigned>(std::time(0))); 
+
+
+    enemyObjects.push_back(Enemy(100, 100));
+    enemyObjects.push_back(Enemy(200, 200)); 
+
+    CustomCursor customCursor;
+
+    while (window->isOpen()) {
+        sf::Event event;
+        while (window->pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window->close();
+            }
+
+
+        }
+
+        superShotgun->Update(event);
+
+        stateText.setString(superShotgun->GetSuperShotgunStateString(superShotgun->state));
+
+        window->clear();
+
+        switch (superShotgun->state)
+        {
+        case SuperShotgunState::BarrelFull:
+            window->draw(barrel_full_sprite);
+            break;
+        case SuperShotgunState::BarrelEmpty:
+            window->draw(barrel_empty_sprite);
+            break;
+        case SuperShotgunState::Reloading:
+            window->draw(reloading_sprite);
+            break;
+        }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+            character->m_currentHealth -= 0.001  ; 
+
+
+            float healthPercentage = static_cast<float>(character->m_currentHealth) / 100.0f; 
+            float healthBarWidth = healthPercentage * 200.0f; 
+            std::cout << "Current Health: " << character->m_currentHealth << std::endl;
+
+            healthBar.setSize(sf::Vector2f(healthBarWidth, 20)); 
+            healthBar.setPosition(300, 10);
+            healthBar.setFillColor(sf::Color::Red);
+
+        }
+
+
+        ammoText.setString("Munitions: " + std::to_string(superShotgun->m_ammoCount));
+
+        // Enemy
+        static sf::Clock clock;
+        float deltaTime = clock.restart().asSeconds();
+
+        for (Enemy& enemy : enemyObjects) {
+            enemy.Update(deltaTime);
+            enemy.Draw(*window);
+        }
+
+
+        sf::Vector2i mousePosition = sf::Mouse::getPosition(*window);
+
+        customCursor.Update(mousePosition);
+        customCursor.Draw(*window);
+
+
+
+        window->draw(healthBar);
+        window->draw(stateText);
+        window->draw(border);
+        window->draw(ammoText);
+        window->display();
+
+        
+    }
+
+    return 0;
+}
+
+
 
 //int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
 //    #ifdef _DEBUG
