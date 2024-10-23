@@ -52,15 +52,29 @@ constexpr int G_RELOAD_TIME = 3;
 #include "Behaviour.hpp"
 #include "Condition.hpp"
 
+class AmmoCondition : public Condition {
+public:
+    bool Test(Plant* plant) override {
+        return plant->getAmmoCount() > 0;  // Vérifie si le plant a de l'ammo
+    }
+};
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tower Defense");
 
     Behaviour* behaviour = new Behaviour();
-    Plant* plant = new Plant(sf::Vector2f(100, 100), behaviour, 5);
+    Plant* plant = new Plant(sf::Vector2f(100, 100), behaviour, 5); // Initialisez plant avec 5 munitions
+
 
     Transition* transition = new Transition();
-    transition->setTargetState(Context::State::SomeState);
-    behaviour->AddTransition(Context::State::SomeState, transition);
+    transition->setTargetState(Context::State::Shooting);
+
+    // Add condition to transition shooting
+    AmmoCondition* ammoCondition = new AmmoCondition(); 
+    transition->addCondition(ammoCondition); 
+
+    // Add transition to behaviour plant
+    behaviour->AddTransition(Context::State::Shooting, transition);
 
     while (window.isOpen()) {
         sf::Event event;

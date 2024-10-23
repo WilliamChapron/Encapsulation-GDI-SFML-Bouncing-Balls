@@ -14,10 +14,10 @@ class Plant {
     Behaviour* mBehaviour;
 
 public:
-    Plant() : mPosition(0, 0), mName("Default"), mAmmoCount(0), mMaxAmmo(10), mState(Context::State::SomeState), mBehaviour(nullptr) {}
+    Plant() : mPosition(0, 0), mName("Default"), mAmmoCount(0), mMaxAmmo(10), mState(Context::State::Shooting), mBehaviour(nullptr) {}
 
     Plant(sf::Vector2f position, Behaviour* plant_behaviour, int ammo_count)
-        : mPosition(position), mName("Plant"), mAmmoCount(ammo_count), mMaxAmmo(10), mState(Context::State::SomeState), mBehaviour(plant_behaviour) {}
+        : mPosition(position), mName("Plant"), mAmmoCount(ammo_count), mMaxAmmo(10), mState(Context::State::Shooting), mBehaviour(plant_behaviour) {}
 
     ~Plant() {}
 

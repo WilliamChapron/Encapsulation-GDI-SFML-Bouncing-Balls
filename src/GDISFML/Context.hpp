@@ -1,8 +1,9 @@
 #pragma once
 
 namespace Context {
-    enum class State {
-        SomeState,
-        AnotherState
+    enum class State { // Plant state
+        Shooting,
+        Reloading,
+        Dead,
     };
 }
