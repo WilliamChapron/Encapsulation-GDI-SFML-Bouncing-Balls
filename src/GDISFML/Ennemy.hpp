@@ -30,6 +30,11 @@ public:
 		return ennemyShape.getPosition();
 	}
 
+	void Update() {
+		sf::Vector2f pos = ennemyShape.getPosition();
+		ennemyShape.setPosition(pos.x - 0.01, pos.y);
+	}
+
 	void setPosition(sf::Vector2f position)
 	{
 		ennemyShape.setPosition(position);

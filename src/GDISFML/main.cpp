@@ -248,9 +248,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
         {
             for (int i = 0; i < allEnnemies.size(); i++)
             {
+                allEnnemies[i]->Update();
                 window.draw(allEnnemies[i]->ennemyShape);
             }
         }
+
+
 
         it++;
 
