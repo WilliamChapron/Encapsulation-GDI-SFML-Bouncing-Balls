@@ -68,25 +68,36 @@ public:
     // Rpm
     bool isShootPerformed = false;
     Timer rpmTimer;
+    // Ammo
+    Timer reloadingTimer;
 
     sf::CircleShape plantShape;
 
 
     sf::Vector2f mPosition;
     std::string mName;
-    int mAmmoCount, mMaxAmmo;
+    int mAmmoCount = 10, mMaxAmmo = 10;
     Context::State mState;
     Behaviour* mBehaviour;
+
+    std::string StateToString() {
+        switch (mState) {
+        case Context::State::CanShoot:   return "CanShoot";
+        case Context::State::Reloading:  return "Reloading";
+        case Context::State::Dead:       return "Dead";
+        default:                         return "Unknown State";
+        }
+    }
 
     std::vector<Projectile*> balls;
 
 
-    Plant() : mPosition(0, 0), mName("Default"), mAmmoCount(0), mMaxAmmo(10), mState(Context::State::CanShoot), mBehaviour(nullptr) 
+    Plant() : mPosition(0, 0), mName("Default") ,mState(Context::State::Idle), mBehaviour(nullptr) 
     {
     }
 
     Plant(sf::Vector2f position, Behaviour* plant_behaviour, int ammo_count)
-        : mPosition(position), mName("Plant"), mAmmoCount(ammo_count), mMaxAmmo(10), mState(Context::State::CanShoot), mBehaviour(plant_behaviour)
+        : mPosition(position), mName("Plant"), mState(Context::State::Idle), mBehaviour(plant_behaviour)
     {
         plantShape.setPosition(position);
         plantShape.setFillColor(sf::Color::Blue);
@@ -97,6 +108,26 @@ public:
 
     void setState(Context::State state) {
         mState = state;
+        return;
+
+        switch (mState) {
+        case Context::State::Idle:
+            std::cout << "Idle state" << std::endl;
+            break;
+        case Context::State::CanShoot:
+            std::cout << "CanShoot state" << std::endl;
+            break;
+        case Context::State::Reloading:
+            std::cout << "Reloading state" << std::endl;
+            break;
+        case Context::State::Dead:
+            std::cout << "Dead state" << std::endl;
+            break;
+        default:
+            std::cout << "Unknown state" << std::endl;
+            break;
+        }
+        std::cout << "\n";
     }
 
     Context::State getState() const {
@@ -109,14 +140,6 @@ public:
 
     sf::Vector2f getPosition() const {
         return mPosition;
-    }
-
-    int getAmmoCount() const {
-        return mAmmoCount;
-    }
-
-    void refillMagazine() {
-        mAmmoCount = mMaxAmmo;
     }
 
     sf::Text textAmmo;
