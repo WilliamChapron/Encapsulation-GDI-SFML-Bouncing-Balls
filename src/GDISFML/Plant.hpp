@@ -41,7 +41,8 @@ public:
     Projectile(float posX, float posY, float velocityX, float velocityY, float damage)
         : x(posX), y(posY), mVelocityX(velocityX), mVelocityY(velocityY), mDamage(damage) {
         mShape.setRadius(5.0f);
-        mShape.setFillColor(sf::Color::Red);
+        mShape.setOrigin(mShape.getRadius(), mShape.getRadius());
+        mShape.setFillColor(sf::Color::White);
         mShape.setPosition(x, y); 
     }
 
@@ -70,7 +71,7 @@ public:
     // Ammo
     Timer reloadingTimer;
 
-    sf::RectangleShape plantShape;
+    sf::CircleShape plantShape;
 
 
     sf::Vector2f mPosition;
@@ -99,8 +100,8 @@ public:
         : mPosition(position), mName("Plant"), mState(Context::State::Idle), mBehaviour(plant_behaviour)
     {
         plantShape.setPosition(position);
-        plantShape.setFillColor(sf::Color::Green);
-        plantShape.setSize(sf::Vector2f(40, 40));
+        plantShape.setFillColor(sf::Color::Blue);
+        plantShape.setRadius(20);
     }
 
     ~Plant() {}
@@ -151,11 +152,11 @@ public:
         }
         textAmmo.setFont(mfont);
         textAmmo.setCharacterSize(20);
-        textAmmo.setFillColor(sf::Color::Red);
+        textAmmo.setFillColor(sf::Color::White);
     }
 
     void setTextNbAmmo() {
-        textAmmo.setString(std::to_string(mAmmoCount));
+        textAmmo.setString(std::to_string(mMaxAmmo + mAmmoCount));
         textAmmo.setPosition(mPosition);
     }
 
