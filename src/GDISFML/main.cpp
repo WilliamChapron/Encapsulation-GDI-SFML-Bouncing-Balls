@@ -76,6 +76,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
     // Add transition to behaviour plant
     behaviour->AddTransition(Context::State::Shooting, transition);
 
+    plant->loadTextFont();
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -89,11 +91,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
 
         window.clear();
 
-        sf::RectangleShape plantShape(sf::Vector2f(50, 50));
+        sf::CircleShape plantShape(20);
         plantShape.setFillColor(plant->getColor());
         plantShape.setPosition(plant->getPosition());
         window.draw(plantShape);
-
+        window.draw(plant->textAmmo);
         window.display();
     }
 
@@ -102,3 +104,34 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
 
     return 0;
 }
+
+//int main() {
+//    sf::RenderWindow window(sf::VideoMode(800, 600), "Font Test");
+//    sf::Font font;
+//    sf::Text text;
+//
+//    if (!font.loadFromFile("C:/Users/benjaminbenon/Documents/GitHub/EncapsulationGDI-SFML/src/Hack-Regular.ttf")) {
+//        std::cerr << "Failed to load font!" << std::endl;
+//        return -1;
+//    }
+//
+//    text.setFont(font);
+//    text.setString("Hello, World!");
+//    text.setCharacterSize(24);
+//    text.setFillColor(sf::Color::Red);
+//    text.setPosition(100, 100);
+//
+//    while (window.isOpen()) {
+//        sf::Event event;
+//        while (window.pollEvent(event)) {
+//            if (event.type == sf::Event::Closed)
+//                window.close();
+//        }
+//
+//        window.clear();
+//        window.draw(text);
+//        window.display();
+//    }
+//
+//    return 0;
+//}

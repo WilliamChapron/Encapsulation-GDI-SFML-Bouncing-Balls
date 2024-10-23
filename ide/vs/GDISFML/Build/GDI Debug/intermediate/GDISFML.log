@@ -1,0 +1,111 @@
+﻿  pch.cpp
+  App.cpp
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\App.cpp(154,19): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\App.cpp(158,23): warning C4244: 'initialisation' : conversion de 'ULONGLONG' en 'DWORD', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\App.cpp(159,31): warning C4244: '=' : conversion de 'unsigned long' en 'float', perte possible de données
+  Behaviour.cpp
+  BitmapTexture.cpp
+  BouncingBall.cpp
+  Font.cpp
+  GDIFont.cpp
+  GDIRenderer.cpp
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(49,32): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(48,32): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(64,120): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(64,99): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(64,81): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(64,66): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(75,43): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(75,30): warning C4244: 'initialisation' : conversion de 'float' en 'const int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(82,31): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(81,31): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(80,31): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(79,31): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(99,35): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(98,35): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(113,139): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(113,115): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(113,91): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\src\GDISFML\GDIRenderer.cpp(113,67): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  GDISurface.cpp
+  GDITexture.cpp
+  GDIWindow.cpp
+  main.cpp
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(81,19): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(81,19): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(81,19): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(81,19): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(82,19): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(82,19): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(82,19): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(82,19): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(83,19): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(83,19): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(83,19): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(83,19): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(84,19): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(84,19): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(84,19): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(84,19): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(114,21): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(114,21): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(114,21): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(114,21): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(115,21): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(115,21): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(115,21): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(115,21): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(116,21): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(116,21): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(116,21): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(116,21): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(117,21): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(117,21): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(117,21): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(117,21): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(120,21): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(120,21): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(120,21): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(120,21): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(121,21): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(121,21): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(121,21): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(121,21): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(122,21): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(122,21): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(122,21): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(122,21): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(123,21): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(123,21): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(123,21): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(123,21): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(126,26): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(126,26): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(126,26): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(126,26): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(127,26): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(127,26): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(127,26): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(127,26): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(128,26): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(128,26): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(128,26): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(128,26): message : erreur de récupération ignorée : « ) »
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(129,26): error C2589: '(' : jeton non conforme à droite de '::'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(129,26): error C2760: erreur de syntaxe : ')' était inattendu ici; ';' attendu
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(129,26): error C3878: erreur de syntaxe : jeton inattendu ')' après 'expression_statement'
+C:\Users\benjaminbenon\Documents\GitHub\EncapsulationGDI-SFML\SFML-2.6.1\include\SFML\Graphics\Rect.inl(129,26): message : erreur de récupération ignorée : « ) »
+  RenderInterface.cpp
+  SFMLFont.cpp
+  SFMLRenderer.cpp
+  SFMLSurface.cpp
+  SFMLTexture.cpp
+  SFMLWindow.cpp
+  Surface.cpp
+  Text.cpp
+  Texture.cpp
+  Génération de code en cours...
+  Compilation en cours...
+  Transition.cpp
+  Window.cpp
+  Génération de code en cours...

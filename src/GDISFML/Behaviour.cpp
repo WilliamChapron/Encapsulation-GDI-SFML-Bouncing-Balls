@@ -4,7 +4,9 @@
 #include "Plant.hpp"
 #include "Action.hpp"
 
-Behaviour::Behaviour() {}
+Behaviour::Behaviour() {
+
+}
 
 Behaviour::~Behaviour() {
     for (auto it : mTransitions) {

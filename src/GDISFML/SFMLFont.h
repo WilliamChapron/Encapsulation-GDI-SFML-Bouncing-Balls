@@ -18,7 +18,7 @@ public:
         return m_font; 
     }
 private:
-    sf::Font m_font; 
+    sf::Font m_font;
 };
 
 #endif

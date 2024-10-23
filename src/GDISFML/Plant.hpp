@@ -5,6 +5,7 @@
 #include "Context.hpp"
 #include "Behaviour.hpp"
 #include <iostream>
+#include <string>
 
 class Plant {
     sf::Vector2f mPosition;
@@ -30,7 +31,7 @@ public:
     }
 
     sf::Color getColor() const {
-        return sf::Color::Green;
+        return sf::Color::Blue;
     }
 
     sf::Vector2f getPosition() const {
@@ -45,6 +46,24 @@ public:
         mAmmoCount = mMaxAmmo;
     }
 
+    sf::Text textAmmo;
+    sf::Font mfont;
+
+    void loadTextFont() {
+        if (!mfont.loadFromFile("C:/Users/benjaminbenon/Documents/GitHub/EncapsulationGDI-SFML/src/Hack-Regular.ttf"))
+        {
+            return;
+        }
+        textAmmo.setFont(mfont);
+        textAmmo.setCharacterSize(20);
+        textAmmo.setFillColor(sf::Color::Red);
+    }
+
+    void setTextNbAmmo() {
+        textAmmo.setString(std::to_string(mAmmoCount));
+        textAmmo.setPosition(mPosition);
+    }
+
     bool shoot() {
         if (mAmmoCount > 0) {
             mAmmoCount--;
@@ -54,6 +73,7 @@ public:
     }
 
     void Update() {
+        setTextNbAmmo();
         if (mBehaviour) {
             mBehaviour->Update(this);
         }
