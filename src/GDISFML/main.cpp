@@ -140,8 +140,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
 
         window.clear();
 
-        window.draw(plant->textAmmo);
         window.draw(plant->plantShape);
+        window.draw(plant->textAmmo);
         
         int i = 0;
         for (auto ball : plant->balls) {
