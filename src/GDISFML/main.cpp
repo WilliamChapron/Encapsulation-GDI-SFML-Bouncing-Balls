@@ -48,6 +48,7 @@ constexpr int G_RELOAD_TIME = 3;
 
 #include <SFML/Graphics.hpp>
 #include "Plant.hpp"
+#include "Ennemy.hpp"
 #include "Transition.hpp"
 #include "Behaviour.hpp"
 #include "Condition.hpp"
@@ -81,7 +82,7 @@ public:
     void Start(Plant* plant) override {
     }
     void Update(Plant* plant) override {
-        Projectile* projectile = new Projectile(plant->getPosition().x + plant->plantShape.getSize().x/2, plant->getPosition().y + plant->plantShape.getSize().y/2, 0.1f, 0.0f, 10.0f);
+        Projectile* projectile = new Projectile(plant->getPosition().x + plant->plantShape.getRadius(), plant->getPosition().y + plant->plantShape.getRadius(), 0.1f, 0.0f, 10.0f);
         plant->balls.push_back(projectile);
 
         plant->mAmmoCount--;
@@ -103,8 +104,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
     freopen_s(&f, "CONOUT$", "w", stdout);
 
     Behaviour* behaviour = new Behaviour();
-    Plant* plant = new Plant(sf::Vector2f(100, 100), behaviour, 5); 
+    std::vector<Plant*> allPlants;
+    for (int i = 0; i < 4; i++)
+    {
+        allPlants.push_back(new Plant(sf::Vector2f(10, 50 + i*(window.getSize().y-150.f)/3.f), behaviour, 5));
+    }
 
+    std::vector<Ennemy*> allEnnemies;
 
     Transition* transitionShootToIdle = new Transition();
     Transition* transitionIdleToShoot = new Transition();
@@ -125,7 +131,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
     behaviour->AddTransition(Context::State::CanShoot, transitionShootToIdle);
     behaviour->AddTransition(Context::State::Idle, transitionIdleToShoot);
 
-    plant->loadTextFont();
+    for (int i = 0; i < 4; i++)
+    {
+        allPlants[i]->loadTextFont();
+    }
 
     while (window.isOpen()) {
         sf::Event event;
@@ -133,64 +142,55 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
             if (event.type == sf::Event::Closed) {
                 window.close();
             }
+            if (event.type == sf::Event::MouseButtonPressed
+                && event.mouseButton.button == sf::Mouse::Left)
+            {
+                sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
+                sf::Vector2f mouseFloatPosition = window.mapPixelToCoords(mousePosition);
+                int line = (int)((mouseFloatPosition.y / window.getSize().y)*4.f);
+
+                allEnnemies.push_back(new Ennemy(sf::Vector2f(mouseFloatPosition.x, 50 + line * (window.getSize().y - 150.f) / 3.f)));
+            }
         }
 
-        plant->Update();
-        behaviour->Update(plant);
+        for (int i = 0; i < 4; i++)
+        {
+            allPlants[i]->Update();
+            behaviour->Update(allPlants[i]);
+        }
 
         window.clear();
 
-        window.draw(plant->plantShape);
-        window.draw(plant->textAmmo);
-        
-        int i = 0;
-        for (auto ball : plant->balls) {
+        for (int i = 0; i < 4; i++) {
+            window.draw(allPlants[i]->plantShape);
+            window.draw(allPlants[i]->textAmmo);
 
-            //std::cout << i << "\n";
-            ball->Update();
-            ball->Draw(window);
-            i++;
+            // Draw each plant's projectiles (balls)
+            int j = 0;
+            for (auto ball : allPlants[i]->balls) {
+                ball->Update();
+                ball->Draw(window);
+                j++;
+            }
         }
 
+        if (allEnnemies.size() > 0)
+        {
+            for (int i = 0; i < allEnnemies.size(); i++)
+            {
+                window.draw(allEnnemies[i]->ennemyShape);
+            }
+        }
         //std::cout << it << "\n";
         it++;
 
         window.display();
     }
 
-    delete plant;
+    for (int i = 0; i < 4; i++) {
+        delete allPlants[i];
+    }
     delete behaviour;
 
     return 0;
 }
-
-//int main() {
-//    sf::RenderWindow window(sf::VideoMode(800, 600), "Font Test");
-//    sf::Font font;
-//    sf::Text text;
-//
-//    if (!font.loadFromFile("C:/Users/benjaminbenon/Documents/GitHub/EncapsulationGDI-SFML/src/Hack-Regular.ttf")) {
-//        std::cerr << "Failed to load font!" << std::endl;
-//        return -1;
-//    }
-//
-//    text.setFont(font);
-//    text.setString("Hello, World!");
-//    text.setCharacterSize(24);
-//    text.setFillColor(sf::Color::Red);
-//    text.setPosition(100, 100);
-//
-//    while (window.isOpen()) {
-//        sf::Event event;
-//        while (window.pollEvent(event)) {
-//            if (event.type == sf::Event::Closed)
-//                window.close();
-//        }
-//
-//        window.clear();
-//        window.draw(text);
-//        window.display();
-//    }
-//
-//    return 0;
-//}
