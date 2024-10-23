@@ -6,3 +6,54 @@ GDISFML/ide/vs/.vs/GDISFML/v17/ipch/7af1f9d07c8792b6.ipch
 GDISFML/ide/vs/.vs/GDISFML/v17/Browse.VC.opendb
 *.ipch
 *.pch
+ide/vs/GDISFML/GDISFML.vcxproj.user
+ide/vs/GDISFML/GDISFML.vcxproj.filters
+ide/vs/GDISFML/GDISFML.vcxproj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/Window.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/vc143.pdb
+ide/vs/GDISFML/Build/SFML Debug/intermediate/vc143.idb
+ide/vs/GDISFML/Build/SFML Debug/intermediate/Transition.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/Texture.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/Text.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/Surface.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/SFMLWindow.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/SFMLTexture.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/SFMLSurface.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/SFMLRenderer.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/SFMLFont.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/RenderInterface.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/pch.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/main.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDIWindow.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDITexture.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISurface.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.tlog/link.write.1.tlog
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.tlog/link.secondary.1.tlog
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.tlog/link.read.1.tlog
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.tlog/link.command.1.tlog
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.tlog/GDISFML.lastbuildstate
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.tlog/CL.write.1.tlog
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.tlog/CL.read.1.tlog
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.tlog/Cl.items.tlog
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.tlog/CL.command.1.tlog
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.log
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.ilk
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDISFML.exe.recipe
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDIRenderer.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/GDIFont.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/Font.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/BouncingBall.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/BitmapTexture.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/Behaviour.obj
+ide/vs/GDISFML/Build/SFML Debug/intermediate/App.obj
+ide/vs/GDISFML/Build/SFML Debug/GDISFML.pdb
+ide/vs/GDISFML/Build/SFML Debug/GDISFML.exe
+ide/vs/GDISFML.sln
+ide/vs/.vs/GDISFML/v17/Solution.VC.db
+ide/vs/.vs/GDISFML/v17/DocumentLayout.json
+ide/vs/.vs/GDISFML/v17/DocumentLayout.backup.json
+ide/vs/.vs/GDISFML/v17/Browse.VC.opendb
+ide/vs/.vs/GDISFML/v17/Browse.VC.db-wal
+ide/vs/.vs/GDISFML/v17/Browse.VC.db-shm
+ide/vs/.vs/GDISFML/v17/Browse.VC.db
+ide/vs/.vs/GDISFML/v17/.suo
