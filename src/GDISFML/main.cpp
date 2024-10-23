@@ -51,30 +51,79 @@ constexpr int G_RELOAD_TIME = 3;
 #include "Transition.hpp"
 #include "Behaviour.hpp"
 #include "Condition.hpp"
+#include "Action.hpp"
 
-class AmmoCondition : public Condition {
+
+
+class ShootPerformedCondition : public Condition {
 public:
     bool Test(Plant* plant) override {
-        return plant->getAmmoCount() > 0;  // Vérifie si le plant a de l'ammo
+        std::cout << "Check Shoot perform condition";
+        return plant->isShootPerformed;
+    }
+};
+
+class CanShootAgainCondition : public Condition {
+public:
+    bool Test(Plant* plant) override {
+        if (plant->rpmTimer.CheckEndTimer(0.1) && plant->rpmTimer.isInit) {
+            plant->isShootPerformed = false;
+            return true;
+        }
+        return false;
+        std::cout << "idle test if we can re shoot";
+    }
+};
+
+class ShootAction : public Action {
+public:
+
+    void Start(Plant* plant) override {
+    }
+    void Update(Plant* plant) override {
+        Projectile* projectile = new Projectile(plant->getPosition().x + plant->plantShape.getSize().x/2, plant->getPosition().y + plant->plantShape.getSize().y/2, 0.1f, 0.0f, 10.0f);
+        plant->balls.push_back(projectile);
+
+        plant->mAmmoCount--;
+
+
+        plant->isShootPerformed = true;
+        plant->rpmTimer.Start();
+        
+    }
+    void End(Plant* plant) override {
     }
 };
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tower Defense");
+    int it = 0;
+    AllocConsole();
+    FILE* f;
+    freopen_s(&f, "CONOUT$", "w", stdout);
 
     Behaviour* behaviour = new Behaviour();
-    Plant* plant = new Plant(sf::Vector2f(100, 100), behaviour, 5); // Initialisez plant avec 5 munitions
+    Plant* plant = new Plant(sf::Vector2f(100, 100), behaviour, 5); 
 
 
-    Transition* transition = new Transition();
-    transition->setTargetState(Context::State::Shooting);
+    Transition* transitionShootToIdle = new Transition();
+    Transition* transitionIdleToShoot = new Transition();
+
+    transitionShootToIdle->setTargetState(Context::State::Idle);
+    transitionIdleToShoot->setTargetState(Context::State::CanShoot);
 
     // Add condition to transition shooting
-    AmmoCondition* ammoCondition = new AmmoCondition(); 
-    transition->addCondition(ammoCondition); 
+    ShootPerformedCondition* shootCondition = new ShootPerformedCondition();
+    transitionShootToIdle->addCondition(shootCondition);
+    CanShootAgainCondition* idleCondition = new CanShootAgainCondition();
+    transitionIdleToShoot->addCondition(idleCondition);
+
+    ShootAction* shootAction = new ShootAction();
 
     // Add transition to behaviour plant
-    behaviour->AddTransition(Context::State::Shooting, transition);
+    behaviour->AddAction(Context::State::CanShoot, shootAction);
+    behaviour->AddTransition(Context::State::CanShoot, transitionShootToIdle);
+    behaviour->AddTransition(Context::State::Idle, transitionIdleToShoot);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -89,10 +138,21 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
 
         window.clear();
 
-        sf::RectangleShape plantShape(sf::Vector2f(50, 50));
-        plantShape.setFillColor(plant->getColor());
-        plantShape.setPosition(plant->getPosition());
-        window.draw(plantShape);
+
+
+        window.draw(plant->plantShape);
+        
+        int i = 0;
+        for (auto ball : plant->balls) {
+
+            //std::cout << i << "\n";
+            ball->Update();
+            ball->Draw(window);
+            i++;
+        }
+
+        //std::cout << it << "\n";
+        it++;
 
         window.display();
     }
