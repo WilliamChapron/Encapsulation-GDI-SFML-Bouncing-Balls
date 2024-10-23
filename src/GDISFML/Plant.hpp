@@ -129,7 +129,7 @@ public:
         }
         textAmmo.setFont(mfont);
         textAmmo.setCharacterSize(20);
-        textAmmo.setFillColor(sf::Color::Red);
+        textAmmo.setFillColor(sf::Color::White);
     }
 
     void setTextNbAmmo() {
