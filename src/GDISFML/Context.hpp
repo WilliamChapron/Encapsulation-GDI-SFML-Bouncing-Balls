@@ -2,9 +2,8 @@
 
 namespace Context {
     enum class State { // Plant state
-        Shooting,
-        NoAmmo,
-        Reloading,
+        Idle,
+        CanShoot,
         Dead,
     };
 }
