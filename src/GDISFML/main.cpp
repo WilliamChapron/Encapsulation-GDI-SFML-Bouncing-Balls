@@ -66,12 +66,16 @@ public:
 class CanShootAgainCondition : public Condition {
 public:
     bool Test(Plant* plant) override {
-        if (plant->rpmTimer.CheckEndTimer(0.4) && plant->rpmTimer.isInit) {
-            plant->isShootPerformed = false;
+        //std::cout << "Check can shoot \n";
+        if (!plant->rpmTimer.isInit) {
             return true;
         }
+
+        if (plant->rpmTimer.CheckEndTimer(0.4)) {
+            plant->isShootPerformed = false; 
+            return true; 
+        }
         return false;
-        //std::cout << "idle test if we can re shoot";
     }
 };
 
@@ -80,7 +84,7 @@ class NoMoreAmmoCondition : public Condition {
 public:
     bool Test(Plant* plant) override {
         if (plant->mAmmoCount < 1) {
-            std::cout << "Check ammo count" << plant->mAmmoCount << "/" << plant->mMaxAmmo;
+            //std::cout << "Check ammo count" << plant->mAmmoCount << "/" << plant->mMaxAmmo;
             plant->reloadingTimer.Start();
             return true;
         }
@@ -166,20 +170,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
     //
 
     // Ammo
-    //Transition* transitionIdleToReloading = new Transition();
-    //transitionIdleToReloading->setTargetState(Context::State::Reloading);
-    //NoMoreAmmoCondition* nomoreammoCondition = new NoMoreAmmoCondition();
-    //transitionIdleToReloading->addCondition(nomoreammoCondition);
+    Transition* transitionIdleToReloading = new Transition();
+    transitionIdleToReloading->setTargetState(Context::State::Reloading);
+    NoMoreAmmoCondition* nomoreammoCondition = new NoMoreAmmoCondition();
+    transitionIdleToReloading->addCondition(nomoreammoCondition);
 
-    //behaviour->AddTransition(Context::State::Idle, transitionIdleToReloading);
+    behaviour->AddTransition(Context::State::Idle, transitionIdleToReloading);
 
 
-    //Transition* transitionReloadingToIdle = new Transition();
-    //transitionReloadingToIdle->setTargetState(Context::State::Idle);
-    //ReloadingEnd* reloadingEndCondition = new ReloadingEnd();
-    //transitionReloadingToIdle->addCondition(reloadingEndCondition);
-    //behaviour->AddTransition(Context::State::Reloading, transitionReloadingToIdle);
-    //
+    Transition* transitionReloadingToIdle = new Transition();
+    transitionReloadingToIdle->setTargetState(Context::State::Idle);
+    ReloadingEnd* reloadingEndCondition = new ReloadingEnd();
+    transitionReloadingToIdle->addCondition(reloadingEndCondition);
+    behaviour->AddTransition(Context::State::Reloading, transitionReloadingToIdle);
+    
 
 
 
@@ -197,8 +201,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
                 window.close();
             }
         }
-        std::cout << it << "\n";
-        std::cout << plant->StateToString() << "\n";
+        //std::cout << it << "\n";
+        //std::cout << plant->StateToString() << "\n";
 
         plant->Update();
         behaviour->Update(plant);

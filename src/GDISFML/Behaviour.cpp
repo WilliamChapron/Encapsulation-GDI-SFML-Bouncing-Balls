@@ -38,6 +38,7 @@ void Behaviour::Start(Plant* plant) {
 
 void Behaviour::Update(Plant* plant) {
     for (const auto& a : mActions[plant->getState()]) {
+        std::cout << "Update action";
         a->Update(plant);
     }
 

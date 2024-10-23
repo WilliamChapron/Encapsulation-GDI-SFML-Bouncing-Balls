@@ -81,7 +81,6 @@ public:
 
     std::string StateToString() {
         switch (mState) {
-        case Context::State::Idle:       return "Idle";
         case Context::State::CanShoot:   return "CanShoot";
         case Context::State::Reloading:  return "Reloading";
         case Context::State::Dead:       return "Dead";
@@ -108,6 +107,26 @@ public:
 
     void setState(Context::State state) {
         mState = state;
+        return;
+
+        switch (mState) {
+        case Context::State::Idle:
+            std::cout << "Idle state" << std::endl;
+            break;
+        case Context::State::CanShoot:
+            std::cout << "CanShoot state" << std::endl;
+            break;
+        case Context::State::Reloading:
+            std::cout << "Reloading state" << std::endl;
+            break;
+        case Context::State::Dead:
+            std::cout << "Dead state" << std::endl;
+            break;
+        default:
+            std::cout << "Unknown state" << std::endl;
+            break;
+        }
+        std::cout << "\n";
     }
 
     Context::State getState() const {
