@@ -54,11 +54,11 @@ constexpr int G_RELOAD_TIME = 3;
 #include "Action.hpp"
 
 
-
+// Rpm
 class ShootPerformedCondition : public Condition {
 public:
     bool Test(Plant* plant) override {
-        std::cout << "Check Shoot perform condition";
+        //std::cout << "Check Shoot perform condition";
         return plant->isShootPerformed;
     }
 };
@@ -66,14 +66,49 @@ public:
 class CanShootAgainCondition : public Condition {
 public:
     bool Test(Plant* plant) override {
-        if (plant->rpmTimer.CheckEndTimer(0.1) && plant->rpmTimer.isInit) {
+        if (plant->rpmTimer.CheckEndTimer(0.4) && plant->rpmTimer.isInit) {
             plant->isShootPerformed = false;
             return true;
         }
         return false;
-        std::cout << "idle test if we can re shoot";
+        //std::cout << "idle test if we can re shoot";
     }
 };
+
+// Ammo
+class NoMoreAmmoCondition : public Condition {
+public:
+    bool Test(Plant* plant) override {
+        if (plant->mAmmoCount < 1) {
+            std::cout << "Check ammo count" << plant->mAmmoCount << "/" << plant->mMaxAmmo;
+            plant->reloadingTimer.Start();
+            return true;
+        }
+        return false;
+    }
+};
+
+class ReloadingEnd : public Condition {
+public:
+    bool Test(Plant* plant) override {
+        if (plant->reloadingTimer.CheckEndTimer(3)) {
+            plant->mAmmoCount = plant->mMaxAmmo;
+            return true;
+        }
+        return false;
+    }
+};
+
+// Check enemy
+class CheckEnemy : public Condition {
+public:
+    bool Test(Plant* plant) override {
+        return 1 == 1;
+    }
+};
+
+
+
 
 class ShootAction : public Action {
 public:
@@ -84,6 +119,7 @@ public:
         Projectile* projectile = new Projectile(plant->getPosition().x + plant->plantShape.getSize().x/2, plant->getPosition().y + plant->plantShape.getSize().y/2, 0.1f, 0.0f, 10.0f);
         plant->balls.push_back(projectile);
 
+        //std::cout << "Ammo :" << plant->mAmmoCount << "/" << plant->mMaxAmmo;
         plant->mAmmoCount--;
 
 
@@ -106,24 +142,51 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
     Plant* plant = new Plant(sf::Vector2f(100, 100), behaviour, 5); 
 
 
+
     Transition* transitionShootToIdle = new Transition();
-    Transition* transitionIdleToShoot = new Transition();
-
     transitionShootToIdle->setTargetState(Context::State::Idle);
-    transitionIdleToShoot->setTargetState(Context::State::CanShoot);
-
-    // Add condition to transition shooting
     ShootPerformedCondition* shootCondition = new ShootPerformedCondition();
     transitionShootToIdle->addCondition(shootCondition);
+    behaviour->AddTransition(Context::State::CanShoot, transitionShootToIdle);
+
+
+
+    Transition* transitionIdleToShoot = new Transition();
+    transitionIdleToShoot->setTargetState(Context::State::CanShoot);
+
+    // Two conditions
     CanShootAgainCondition* idleCondition = new CanShootAgainCondition();
     transitionIdleToShoot->addCondition(idleCondition);
+    CheckEnemy* isEnemyInLineCondition = new CheckEnemy();
+    transitionIdleToShoot->addCondition(isEnemyInLineCondition);
 
-    ShootAction* shootAction = new ShootAction();
 
-    // Add transition to behaviour plant
-    behaviour->AddAction(Context::State::CanShoot, shootAction);
-    behaviour->AddTransition(Context::State::CanShoot, transitionShootToIdle);
+
     behaviour->AddTransition(Context::State::Idle, transitionIdleToShoot);
+    //
+
+    // Ammo
+    //Transition* transitionIdleToReloading = new Transition();
+    //transitionIdleToReloading->setTargetState(Context::State::Reloading);
+    //NoMoreAmmoCondition* nomoreammoCondition = new NoMoreAmmoCondition();
+    //transitionIdleToReloading->addCondition(nomoreammoCondition);
+
+    //behaviour->AddTransition(Context::State::Idle, transitionIdleToReloading);
+
+
+    //Transition* transitionReloadingToIdle = new Transition();
+    //transitionReloadingToIdle->setTargetState(Context::State::Idle);
+    //ReloadingEnd* reloadingEndCondition = new ReloadingEnd();
+    //transitionReloadingToIdle->addCondition(reloadingEndCondition);
+    //behaviour->AddTransition(Context::State::Reloading, transitionReloadingToIdle);
+    //
+
+
+
+    // Shoot
+    ShootAction* shootAction = new ShootAction();
+    behaviour->AddAction(Context::State::CanShoot, shootAction);
+
 
     plant->loadTextFont();
 
@@ -134,6 +197,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
                 window.close();
             }
         }
+        std::cout << it << "\n";
+        std::cout << plant->StateToString() << "\n";
 
         plant->Update();
         behaviour->Update(plant);
@@ -152,10 +217,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
             i++;
         }
 
-        //std::cout << it << "\n";
+
         it++;
 
         window.display();
+
+
     }
 
     delete plant;
