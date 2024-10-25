@@ -48,7 +48,8 @@ public:
 
     void Update() {
         //std::cout << "Update ball\n" << ": " << ballCounter;
-        x += mVelocityX;
+        x += mVelocityX; 
+        y += mVelocityY;  
         mShape.setPosition(x, y); 
         ballCounter++;
     }
@@ -102,6 +103,7 @@ public:
         plantShape.setPosition(position);
         plantShape.setFillColor(sf::Color::Blue);
         plantShape.setRadius(20);
+        plantShape.setOrigin(plantShape.getRadius(), plantShape.getRadius());
     }
 
     ~Plant() {}
@@ -146,7 +148,7 @@ public:
     sf::Font mfont;
 
     void loadTextFont() {
-        if (!mfont.loadFromFile("C:/Users/benjaminbenon/Documents/GitHub/EncapsulationGDI-SFML/src/Hack-Regular.ttf"))
+        if (!mfont.loadFromFile("../../../src/Hack-Regular.ttf"))
         {
             return;
         }
@@ -156,7 +158,7 @@ public:
     }
 
     void setTextNbAmmo() {
-        textAmmo.setString(std::to_string(mMaxAmmo + mAmmoCount));
+        textAmmo.setString(std::to_string(mAmmoCount));
         textAmmo.setPosition(mPosition);
     }
 

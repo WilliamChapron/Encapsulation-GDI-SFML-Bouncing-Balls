@@ -31,9 +31,8 @@
 #include <chrono>
 #include <cstdlib>
 #include <chrono>
+#include <math.h>
 
-#include <chrono>
-#include <iostream>
 #include <thread>
 #include <SFML/Graphics.hpp>
 #include <filesystem>
@@ -44,7 +43,7 @@ using std::string;
 #define COOLPURPLE \
     CLITERAL(Color) { 153, 0, 0, 255 }  // cool Purple
 
-constexpr int G_RELOAD_TIME = 3;
+constexpr int G_RELOAD_TIME = 5;
 
 #include <SFML/Graphics.hpp>
 #include "Plant.hpp"
@@ -72,10 +71,12 @@ public:
             return true;
         }
 
-        if (plant->rpmTimer.CheckEndTimer(0.4)) {
+        if (plant->rpmTimer.CheckEndTimer(0.6)) {
             plant->isShootPerformed = false; 
             return true; 
         }
+
+        
         return false;
     }
 };
@@ -96,7 +97,7 @@ public:
 class ReloadingEnd : public Condition {
 public:
     bool Test(Plant* plant) override {
-        if (plant->reloadingTimer.CheckEndTimer(3)) {
+        if (plant->reloadingTimer.CheckEndTimer(G_RELOAD_TIME)) {
             plant->mAmmoCount = plant->mMaxAmmo;
             return true;
         }
@@ -105,10 +106,21 @@ public:
 };
 
 // Check enemy
-class CheckEnemy : public Condition {
+class CheckEnnemy : public Condition {
 public:
+    // Ajout de la liste d'ennemis à vérifier pour chaque plante
+    std::vector<Ennemy*>* mEnemies;
+
+    CheckEnnemy(std::vector<Ennemy*>* enemies) : mEnemies(enemies) {}
+
     bool Test(Plant* plant) override {
-        return 1 == 1;
+        for (auto& enemy : *mEnemies) {
+            // Vérifier si l'ennemi est dans la même ligne que la plante (avec une marge pour tolérance)
+            if (std::abs(enemy->getPosition().y - plant->getPosition().y) < 20.0f) {
+                return true;
+            }
+        }
+        return false; // Aucun ennemi dans la ligne
     }
 };
 
@@ -121,7 +133,8 @@ public:
     void Start(Plant* plant) override {
     }
     void Update(Plant* plant) override {
-        Projectile* projectile = new Projectile(plant->getPosition().x + plant->plantShape.getRadius(), plant->getPosition().y + plant->plantShape.getRadius(), 0.1f, 0.0f, 10.0f);
+        Projectile* projectile = new Projectile(plant->getPosition().x + plant->plantShape.getRadius(), plant->getPosition().y , 0.1f, 0.0f, 10.0f);
+        
         plant->balls.push_back(projectile);
 
         //std::cout << "Ammo :" << plant->mAmmoCount << "/" << plant->mMaxAmmo;
@@ -147,7 +160,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
     std::vector<Plant*> allPlants;
     for (int i = 0; i < 4; i++)
     {
-        allPlants.push_back(new Plant(sf::Vector2f(10, 50 + i*(window.getSize().y-150.f)/3.f), behaviour, 5));
+        allPlants.push_back(new Plant(sf::Vector2f(30, 50 + i*(window.getSize().y-150.f)/3.f), behaviour, 5));
     }
 
     std::vector<Ennemy*> allEnnemies;
@@ -167,8 +180,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
     // Two conditions
     CanShootAgainCondition* idleCondition = new CanShootAgainCondition();
     transitionIdleToShoot->addCondition(idleCondition);
-    CheckEnemy* isEnemyInLineCondition = new CheckEnemy();
-    transitionIdleToShoot->addCondition(isEnemyInLineCondition);
+    CheckEnnemy* isEnnemyInLineCondition = new CheckEnnemy(&allEnnemies);
+    transitionIdleToShoot->addCondition(isEnnemyInLineCondition);
 
 
 
@@ -210,57 +223,84 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nShowCmd) {
                 window.close();
             }
             if (event.type == sf::Event::MouseButtonPressed
-                && event.mouseButton.button == sf::Mouse::Left)
-            {
+                && event.mouseButton.button == sf::Mouse::Left) {
                 sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
                 sf::Vector2f mouseFloatPosition = window.mapPixelToCoords(mousePosition);
-                int line = (int)((mouseFloatPosition.y / window.getSize().y)*4.f);
+                int line = static_cast<int>((mouseFloatPosition.y / window.getSize().y) * 4.f);
 
                 allEnnemies.push_back(new Ennemy(sf::Vector2f(mouseFloatPosition.x, 50 + line * (window.getSize().y - 150.f) / 3.f)));
             }
         }
-        //std::cout << it << "\n";
-        //std::cout << plant->StateToString() << "\n";
 
-        for (int i = 0; i < 4; i++)
-        {
-            allPlants[i]->Update();
-            behaviour->Update(allPlants[i]);
+        // Mise à jour des plantes et leurs projectiles
+        for (auto& plant : allPlants) {
+            plant->Update();
+            behaviour->Update(plant);
+
+            for (auto it = plant->balls.begin(); it != plant->balls.end(); ) {
+                Projectile* ball = *it;
+                ball->Update();
+
+                bool ballDestroyed = false;
+
+                // Vérifier la collision avec chaque ennemi
+                for (auto enemyIt = allEnnemies.begin(); enemyIt != allEnnemies.end(); ) {
+                    Ennemy* enemy = *enemyIt;
+
+                    // Calcul de la distance entre la balle et l'ennemi
+                    int test = enemy->getPosition().x;
+                    int test2 = enemy->getPosition().y;
+                    float dx = ball->x - enemy->getPosition().x;
+                    float dy = ball->y - enemy->getPosition().y;
+                    float distance = std::sqrt(dx * dx + dy * dy);
+
+                    // Si la distance est inférieure à la somme des rayons, il y a collision
+                    if (distance < ball->mShape.getRadius() + enemy->ennemyShape.getRadius()) {
+                        // Supprime la balle et l'ennemi
+                        it = plant->balls.erase(it);
+                        enemyIt = allEnnemies.erase(enemyIt);
+                        ballDestroyed = true;
+                        delete ball;
+                        delete enemy;
+                        break;
+                    }
+                    else {
+                        ++enemyIt;
+                    }
+                }
+
+                if (!ballDestroyed) {
+                    ++it;
+                }
+            }
         }
 
+        // Mise à jour de la position des ennemis restants
+        for (auto& enemy : allEnnemies) {
+            enemy->Update();
+        }
+
+        // Affichage
         window.clear();
 
-        for (int i = 0; i < 4; i++) {
-            window.draw(allPlants[i]->plantShape);
-            window.draw(allPlants[i]->textAmmo);
+        // Afficher les plantes et leurs projectiles
+        for (auto& plant : allPlants) {
+            window.draw(plant->plantShape);
+            window.draw(plant->textAmmo);
 
-            // Draw each plant's projectiles (balls)
-            int j = 0;
-            for (auto ball : allPlants[i]->balls) {
-                ball->Update();
-                ball->Draw(window);
-                j++;
+            for (auto projectile : plant->balls) {
+                projectile->Draw(window);
             }
         }
 
-
-        if (allEnnemies.size() > 0)
-        {
-            for (int i = 0; i < allEnnemies.size(); i++)
-            {
-                allEnnemies[i]->Update();
-                window.draw(allEnnemies[i]->ennemyShape);
-            }
+        // Afficher les ennemis
+        for (auto& enemy : allEnnemies) {
+            window.draw(enemy->ennemyShape);
         }
-
-
-
-        it++;
 
         window.display();
-
-
     }
+
 
     for (int i = 0; i < 4; i++) {
         delete allPlants[i];

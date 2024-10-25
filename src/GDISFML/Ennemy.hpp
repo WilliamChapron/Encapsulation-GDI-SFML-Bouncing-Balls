@@ -22,6 +22,7 @@ public:
 		: mName("Zombie")
 	{
 		ennemyShape.setRadius(15.f);
+		ennemyShape.setOrigin(ennemyShape.getRadius(), ennemyShape.getRadius());
 		ennemyShape.setPosition(position);
 		ennemyShape.setFillColor(sf::Color::Red);
 	}
@@ -32,7 +33,7 @@ public:
 
 	void Update() {
 		sf::Vector2f pos = ennemyShape.getPosition();
-		ennemyShape.setPosition(pos.x - 0.01, pos.y);
+		ennemyShape.setPosition(pos.x - 0.03, pos.y);
 	}
 
 	void setPosition(sf::Vector2f position)
